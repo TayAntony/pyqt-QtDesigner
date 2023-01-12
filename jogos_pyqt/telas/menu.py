@@ -2,9 +2,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from velha import Velha
 from jokenpo import Jokenpo
-from forca import Forca
-
-
+import forca
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -59,9 +57,8 @@ class Ui_Form(object):
 
     def abrir_forca(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = Forca()
-        self.ui.setupUi(self.window)
-        self.window.show()
+        forca.main(self.window)
+        
 
 
 if __name__ == "__main__":
