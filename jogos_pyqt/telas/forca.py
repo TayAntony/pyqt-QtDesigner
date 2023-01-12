@@ -5,7 +5,6 @@ import sys
 from perdedor import Perdedor
 from vencedor import Vencedor
 
-
 class Forca(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -344,6 +343,7 @@ class Forca(object):
         self.botao_z.setDisabled(False)
         self.botao_z.setStyleSheet("background: rgba(255, 255, 255, 0)")
 
+        self.palavra_sorteada.setText(str(' '.join(self.underlines_palavra_secreta)))
         self.dica()
         self.label_chutes.show()
         
