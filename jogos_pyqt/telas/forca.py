@@ -5,6 +5,10 @@ import sys
 from perdedor import Perdedor
 from vencedor import Vencedor
 
+Form = None
+tela_vencedor = None
+tela_perdedor = None
+
 class Forca(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -343,7 +347,6 @@ class Forca(object):
         self.botao_z.setDisabled(False)
         self.botao_z.setStyleSheet("background: rgba(255, 255, 255, 0)")
 
-        self.palavra_sorteada.setText(str(' '.join(self.underlines_palavra_secreta)))
         self.dica()
         self.label_chutes.show()
         
@@ -511,14 +514,12 @@ class Tela_perdedor(Perdedor, Forca):
         ui.setupUi(Form)
         Form.show()
         tela_perdedor.tela.close()
-        
 
-if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
+def main(window):
+    global tela_vencedor, tela_perdedor, Form
+    Form = window
     tela_vencedor = Tela_vencedor()
     tela_perdedor = Tela_perdedor()
     ui = Forca()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+    ui.setupUi(window)
+    window.show()
