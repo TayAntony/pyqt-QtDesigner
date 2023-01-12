@@ -1,0 +1,3 @@
+criar a lógica do jogo da forca 
+- fazer os underlines aparecerem antes de digitar
+- conseguir abrir as telas de vitoria e derrota rodando a partir do menu
