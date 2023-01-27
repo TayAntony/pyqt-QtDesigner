@@ -1,0 +1,3 @@
+- arumar a logica do for e dos ifs
+- juntar a lógica do menu com cpf com a senha 
+- adicionar tela de logado com sucesso
