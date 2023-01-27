@@ -73,16 +73,19 @@ class Ui_Menu(object):
     def criar_usuario(self):
         users = open(r'usuarios.txt', 'r', encoding='utf-8')
         cadastros = users.readlines()
-        if self.lineEdit_nome.text()=='' or self.lineEdit_cpf.text()=='':
+        if self.lineEdit_nome.text()=='' or self.lineEdit_cpf.text()=='' or len(self.lineEdit_cpf.text()) < 11 :
             self.label_erro.setPixmap(QtGui.QPixmap("./imagens/preencha.png"))
         else:
+            permitir = True
             for cadastro in cadastros:
                 separando = cadastro.split('_')
                 if separando[1].strip() == self.lineEdit_cpf.text():
                     self.label_erro.setPixmap(QtGui.QPixmap("./imagens/cpf_cadastrado.png"))
-                else:
+                    permitir = False
+                    break
+
+            if permitir:
                     cadastros = open(r'usuarios.txt', 'a', encoding='utf-8')
-                    
                     cadastros.write(f'{self.lineEdit_nome.text().upper()}_{self.lineEdit_cpf.text()}\n')
                     self.window = QtWidgets.QMainWindow()
                     self.ui = Cadastrado()
